@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if name %}
+        <h1>Welcome {{ name }}</h1>
+    {% endif %}
+    <h4><a href="https://www.google.com">gooogle</a></h4>
+    <ul>
+    {% for city in top_cities %}
+            <li>{{ city }}</li>
+    {% endfor %}
+    </ul>
+
+    <!-- <form method="Post" class="formcontrols" action=""> -->
+    <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.city_name.label }}
+            {{ form.city_name(size = 32) }}
+           
+        </div><br>
+
+        <div class="form-group">
+            {{ form.city_rank.label }}
+            {{ form.city_rank(size = 32) }}
+            
+        </div><br>
+
+        <div class="form-group">
+            {{ form.is_visited.label }}
+            {{ form.is_visited(class="form-control form-control-lg") }}
+        </div><br>
+
+        <div class="form-group">
+            <label>Submit</label>
+            {{ form.submit }}
+        </div>
+    </form>
+
+{% endblock content %}
